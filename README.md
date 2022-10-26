@@ -22,7 +22,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: username.rolename, auth_url: "https://auth.domain.com", key_file: "/etc/ssh/ca.pub" }
+         - { role: neo1908.install_ssh_ca, auth_url: "https://auth.domain.com", key_file: "/etc/ssh/ca.pub" }
 
 License
 -------

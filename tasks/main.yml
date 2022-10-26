@@ -2,7 +2,7 @@
 
 - name: Fetch CA Pub key
   get_url:
-    url: "{{ auth_url }}"
+    url: "{{ auth_url }}/capubkey"
     dest: "{{ key_file }}"
     owner: root
     group: root
