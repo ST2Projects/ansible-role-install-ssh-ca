@@ -1,4 +1,4 @@
-Role Name
+Install SSH CA
 =========
 
 A very simple role to install an SSH-Sentinel CA onto a server
