@@ -14,7 +14,7 @@
 - name: Template TrustedUserCAKeys directive
   blockinfile:
     block: |
-      TrustedUserCAKeys /etc/ssh/ca.pub
+      TrustedUserCAKeys {{ key_file }}
     dest: /etc/ssh/sshd_config
     backup: True
     validate: /usr/sbin/sshd -T -f %s
