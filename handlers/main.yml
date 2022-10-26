@@ -1,2 +1,7 @@
 ---
-# handlers file for ansible-role-install-ssh-ca
+- name: Restart sshd
+  service:
+    name: sshd
+    state: restarted
+    enabled: true
+  become: True

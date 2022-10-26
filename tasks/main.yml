@@ -1,2 +1,22 @@
 ---
-# tasks file for ansible-role-install-ssh-ca
+
+- name: Fetch CA Pub key
+  get_url:
+    url: "{{ auth_url }}"
+    dest: "{{ key_file }}"
+    owner: root
+    group: root
+    mode: 0600
+    backup: true
+  notify: "Restart sshd"
+  become: true
+
+- name: Template TrustedUserCAKeys directive
+  blockinfile:
+    block: |
+      TrustedUserCAKeys /etc/ssh/ca.pub
+    dest: /etc/ssh/sshd_config
+    backup: True
+    validate: /usr/sbin/sshd -T -f %s
+  notify: "Restart sshd"
+  become: True
